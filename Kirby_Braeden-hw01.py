@@ -3,7 +3,7 @@
 # 10/15/2024
 # HW 01
 # Lab Section: 13
-# Sources, people worked with, help given to:
+# Sources, people worked with, help given to: Dominick Larson
 
 # Homework Question:
 #
@@ -24,9 +24,8 @@
 # and their average score is the value.
 # 3. Prints the names of students whose average score is greater than 80.
 # Your task is to calculate the average scores for each student and print the names
-# of students
-# whose average score is greater than 80.
-# Solution
+# of students whose average score is greater than 80.
+# Solution:
 
 #I will input the data for the students from the comments
 
