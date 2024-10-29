@@ -5,6 +5,49 @@
 # Lab Section 13
 # Sources, people worked with, help given to: 
 
+# Assignment Information:
+# For this homework assignment you will be writing a program that translates between plaintext and Morse Code.
+
+# When your program first starts it should ask the user for the input string. If plaintext alphabet cahracters 
+# is entered output the Morse Code equivalent.
+
+# You may assume that only alphabet characters will be entered, and may ignore other input characters.
+
+# You can use the equivalencies below.
+
+#A: .-          N: -.
+#B: -...        O: ---
+#C: -.-.        P: .--.
+#D: -..         Q: --.-
+#E: .           R: .-.
+#F: ..-.        S: ...
+#G: --.         T: -
+#H: ....        U: ..-
+#I: ..          V: ...-
+#J: .---        W: .--
+#K: -.-         X: -..-
+#L: .-..        Y: -.-- 
+#M: --          Z: --..
+
+# Your program should output the correct Morse Code regardless of casing of the input characters. You should output spaces 
+# in the input string as two spaces, and separation 
+# between  Morse Code characters should be a single space.
+
+# For example the message 'Go Pokes' would be equivalent to:
+
+# --. ---  .--. --- -.- . ...
+
+# Where there is a space between the "G" and "o" in Morse code and two spaces between the "Go" and "Pokes".
+
+# Tips and tricks:
+
+# Dictionaries will be your friend for this assignment
+# if string_variable.isalpha():`
+# The Morse Code characters will only ever be `-` or `.`  or a space
+# You can treat strings much like you would a list, meaning you can iterate through them and access characters based 
+# on an index position
+# Remember you can utilize string concatenation with `+=` to build new strings
+
 # I will start off with the input so for the user to use in order to change the plaintext to Morse Code
 
 input_string = input('Please Enter Your plaintext/Alphabetical Characters: ')
