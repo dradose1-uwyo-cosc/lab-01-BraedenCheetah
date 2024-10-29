@@ -1,15 +1,15 @@
 # Braeden Kirby
 # UWYO COSC 1010
-# 10/28/2024
+# 10/29/2024
 # HW 02
 # Lab Section 13
-# Sources, people worked with, help given to:
+# Sources, people worked with, help given to: 
 
 # I will start off with the input so for the user to use in order to change the plaintext to Morse Code
 
-input_string = input('Please Enter your plaintext/Alphabetical Characters: ')
+input_string = input('Please Enter Your plaintext/Alphabetical Characters: ')
 
-# I will create a dictionary for the plaintext alphabet to the Morse Code alphabet
+# I will create a dictionary for the plaintext alphabet translation to the Morse Code alphabet
 
 morse_code_dictionary = {
 
@@ -18,7 +18,7 @@ morse_code_dictionary = {
 
 }
 
-# I will then initialize the Morse Code output
+# I will then initialize the Morse Code output making it be a blank canvas so that I can add onto it later
 
 morse_code_output = ""
 
@@ -31,13 +31,15 @@ for char in input_string.upper():
     if char.isalpha():
 # I can add a space the Morse Code so that the output will be correct
         morse_code_output += morse_code_dictionary[char] + " "
-# I can make an elif statement so that it checks if there is a space provided, making the output be different than converting to Morse Code
+# I can make an elif statement so that it checks if there is a space provided, making the output be different when converting to Morse Code
     elif char == ' ':
 # I can make an if statment to add a double space to the Morse Code if there is already Morse Code
         if morse_code_output:
 # I can make it so there is an extra space if there is Morse Code already present
             morse_code_output += "  "
-# I can strip uneeded space(s) and print the correct result
+
+# I can strip the uneeded space(s) and print the correct result
+
 morse_code_output = morse_code_output.strip()
 
-print('Morse Code Tanslation:', morse_code_output)
+print('Thank You. This is the Morse Code Tanslation:', morse_code_output)
