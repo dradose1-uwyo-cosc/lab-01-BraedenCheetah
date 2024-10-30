@@ -42,7 +42,7 @@
 # Tips and tricks:
 
 # Dictionaries will be your friend for this assignment
-# if string_variable.isalpha():`
+# if string_variable.isalpha():
 # The Morse Code characters will only ever be `-` or `.`  or a space
 # You can treat strings much like you would a list, meaning you can iterate through them and access characters based 
 # on an index position
