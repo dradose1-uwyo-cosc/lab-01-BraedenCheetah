@@ -176,16 +176,15 @@ def day_of_week_calculator(month, day, year):
 
 # I can finally create the bulk of the program's running part by starting with defining the days of the week starting with Sunday
 
-
 # I can write an input function that strips the parentheses from the dates input so that the program can actually interpret it
-
-# I can create an if statement to check that the input values have two '//' and also three parts
 
 def main():
 
         days_of_the_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
         input_date = input("Please enter a date in this format (MM/DD/YYYY): ").strip()
+
+# I can create an if statement to check that the input values have two '//' and also three parts
 
         parts = input_date.split('/')
 
@@ -201,7 +200,7 @@ def main():
 
         if not (parts[0].isdigit() and parts[1].isdigit() and parts[2].isdigit()):
 
-                print("Invalid Date. Please try again.")
+                print(f"{input_date} Invalid Date. Please try again.")
 
                 return
 
@@ -217,7 +216,7 @@ def main():
 
         if not valid_date(month, day, year):
 
-                print(f"{input_date} is an Invalid Date. Please try again.")
+                print(f"{input_date} - Invalid Date.")
 
                 return
 
@@ -225,7 +224,7 @@ def main():
 
         day_of_the_week_name = days_of_the_week[day_of_the_week_index]
 
-        print(f"{input_date} is a {day_of_the_week_name}")
+        print(f"{input_date} {day_of_the_week_name}")
 
 # I can then run the program by an if statement and having the 'main()' run
 
