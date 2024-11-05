@@ -1,88 +1,115 @@
 # Braeden Kirby
 # UWYO COSC 1010
-# 10/29/2024
-# HW 02
+# 11/5/2024
+# HW 03
 # Lab Section 13
 # Sources, people worked with, help given to: 
 
 # Assignment Information:
-# For this homework assignment you will be writing a program that translates between plaintext and Morse Code.
 
-# When your program first starts it should ask the user for the input string. If plaintext alphabet cahracters 
-# is entered output the Morse Code equivalent.
+# Your goal for this program is to write a program that given a date of the format MM/DD/YYYY, your program will then
+# state the day of the week the date occurs on.
+# Given Notes:
 
-# You may assume that only alphabet characters will be entered, and may ignore other input characters.
+# April, June, September, November have 30 days
 
-# You can use the equivalencies below.
+# January, March, May, July, August, October, December have 31 days
 
-#A: .-          N: -.
-#B: -...        O: ---
-#C: -.-.        P: .--.
-#D: -..         Q: --.-
-#E: .           R: .-.
-#F: ..-.        S: ...
-#G: --.         T: -
-#H: ....        U: ..-
-#I: ..          V: ...-
-#J: .---        W: .--
-#K: -.-         X: -..-
-#L: .-..        Y: -.-- 
-#M: --          Z: --..
+# February typically has 28 days, 29 in a leap year
 
-# Your program should output the correct Morse Code regardless of casing of the input characters. You should output spaces 
-# in the input string as two spaces, and separation 
-# between  Morse Code characters should be a single space.
+# Leap years occur in years equally divisible by 4, and not by 100 except in the case when they are
+# divisible by 400. So 2000 was a leap year, however 2100 will not be
 
-# For example the message 'Go Pokes' would be equivalent to:
+# Assume that Sunday is day 0 with Saturday being day 6
 
-# --. ---  .--. --- -.- . ...
+# The day of the week that January 1st falls on can be determined using the following equation:
 
-# Where there is a space between the "G" and "o" in Morse code and two spaces between the "Go" and "Pokes".
+# let y = year -1
+# Jan first falls on day x where:
+# day = (36 + y +(y/4) - (y/100) + (y/400))%7
 
-# Tips and tricks:
+# This equation uses integer division rounded down
 
-# Dictionaries will be your friend for this assignment
-# if string_variable.isalpha():
-# The Morse Code characters will only ever be `-` or `.`  or a space
-# You can treat strings much like you would a list, meaning you can iterate through them and access characters based 
-# on an index position
-# Remember you can utilize string concatenation with `+=` to build new strings
+# Once this is found, you can find what day of the week all other dates fall on. Your program should check for
+# invalid input. Make sure you are checking if it is a leap year if 2/29/XXXX is entered for example, and that
+# none of the other dates are going out of bounds. If the input is not valid, the dates supplied don’t work, etc
+# alert the user to the issue.
 
-# I will start off with the input so for the user to use in order to change the plaintext to Morse Code
+# Input
 
-input_string = input('Please Enter Your plaintext/Alphabetical Characters: ')
+# Your code should accept input from the command line. Dates in the form of MM/DD/YYYY will be inputted.
 
-# I will create a dictionary for the plaintext alphabet translation to the Morse Code alphabet
+# Output
 
-morse_code_dictionary = {
+# Your code should output the inputted date followed by the day of the week it falls on, or that is invalid:
 
-        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 
-        'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..'
+# 02/21/2022 Monday
 
-}
+# 01/01/2022 Saturday
 
-# I will then initialize the Morse Code output making it be a blank canvas so that I can add onto it later
+# 02/29/2024 Thursday
 
-morse_code_output = ""
+# 02/29/2023 Invalid Date
 
-# I will then use a for statement so that each character is able to be processed and swapped to Morse Code
+# 04/31/2023 Invalid Date
 
-# Within the for statement I will make it so that every character entered is upper case (lower case does not work) so that the case sensitivity in the dictionary does not matter
+# 02/00/2023 Invalid Date
 
-for char in input_string.upper():
-# I can use an if statmenet to check if the character entered is alphabetical or not and to continue with the statement if it is
-    if char.isalpha():
-# I can add a space the Morse Code so that the output will be correct
-        morse_code_output += morse_code_dictionary[char] + " "
-# I can make an elif statement so that it checks if there is a space provided, making the output be different when converting to Morse Code
-    elif char == ' ':
-# I can make an if statment to add a double space to the Morse Code if there is already Morse Code
-        if morse_code_output:
-# I can make it so there is an extra space if there is Morse Code already present
-            morse_code_output += "  "
+# Hints
 
-# I can strip the uneeded space(s) and print the correct result
+# Here are some suggestions, they aren't required but they will make your life easier:
 
-morse_code_output = morse_code_output.strip()
+# Break things down into functions, such as:
+# Checking if it is a leap year
+# Calculating on what day January 1st occurs
+# Checking if the date entered is valid
+# Calculating the day of the week for the supplied date
+# Utilize data structures!
+# This helps make your code more concise
+# And also is easier to program
+# A dictionary to map months with their days
+# A list for days of the week
+# etc
+# // is Python's floor division
+# Meaning, it will divide two numbers and give you the integer result rounded down
+# 9//2 would give 4 for example
+# Have a calendar open when testing this
+# Test edge cases
+# leap days in leap years and not
+# Days after a leap day
+# Going out of bounds in a month
+# etc
 
-print('Thank You. This is the Morse Code Tanslation:', morse_code_output)
+# DISALLOWED
+
+# You CANNOT use external libraries to determine the day of the week something occurs on, 
+# e.g the DateTime library. Doing so will result in your program receiving a 0. You must write all the solution yourself.
+
+# I can start by defining a function to check if the year is a leap year using if and else's to set the function (if it is a leap year) to be True or False
+
+def it_is_leap_year(year):
+        
+        if year % 4 == 0:
+
+                if year % 100 == 0:
+
+                        if year % 400 == 0:
+                                
+                                return True
+                        
+                        else:
+
+                                return False
+                
+                return True
+        
+        return False       
+
+# I can then go to the next helpful hints step and make a fucntion to find out what day January 1st is for each year
+
+def first_january_day_calculator(year):
+        
+        y = year - 1 
+
+
+
