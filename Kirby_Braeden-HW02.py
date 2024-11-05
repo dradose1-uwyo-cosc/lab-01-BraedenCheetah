@@ -5,6 +5,12 @@
 # Lab Section 13
 # Sources, people worked with, help given to: 
 
+# Stack Overflow. (2024, November 5). "Is there an expansion on if statments that can stop code from continuing?". 
+# https://https://stackoverflow.com/questions/33565519/python-if-not-this-and-not-that
+
+# Geeks for Geeks. (2024, November 5). "Return statements and their functions". 
+# https://https://www.geeksforgeeks.org/python-return-statement/
+
 # Assignment Information:
 
 # Your goal for this program is to write a program that given a date of the format MM/DD/YYYY, your program will then
@@ -107,9 +113,124 @@ def it_is_leap_year(year):
 
 # I can then go to the next helpful hints step and make a fucntion to find out what day January 1st is for each year
 
-def first_january_day_calculator(year):
+def january_first_day_calculator(year):
         
-        y = year - 1 
+        y = year - 1
+
+        return (36 + y + (y // 4) - (y //100) + (y // 400)) % 7
+
+# I can now create a validity 'checker' and make sure the entered month, day, and year are all valid and will not bring up an error
+
+def valid_date(month, day, year):
+
+        if month < 1 or month > 12:
+
+                return False
+        if day < 1 or day > 31:
+
+                return False
+        if year < 1:
+
+                return False
+        
+# Within the validity 'checker' I can then create a dictionary to create and store the data for the days in each month
+
+        days_in_month = {
+                1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
+        }
+
+# I can then change febuary (2) for if it is a leap year and the statement is True
+
+        if it_is_leap_year(year):
+
+                days_in_month[2] = 29
+
+# I can set a return value to access the dictionary's original values if the if statement is not true
+
+        return day <= days_in_month[month]
+
+# I can now set a function to calculate the day of the week for the date given by the user
+
+# I will staet by getting the first day of January for the given year
+
+def day_of_week_calculator(month, day, year):
+
+        first_day_of_january = january_first_day_calculator(year)
+
+# I can use the month's recorded days  and then add an if statment for a leap year
+
+        days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+        if it_is_leap_year(year):
+
+                days_in_month[2] = 29
+
+# I can make the function calculate the days from january 1st through the use of how many days there are in the given month 
+# then subtracting one from that day
+
+        total_days_from_jan_1st = sum(days_in_month[:month]) + (day - 1)
+
+        day_of_the_week = (first_day_of_january + total_days_from_jan_1st) % 7
+
+        return day_of_the_week
+
+# I can finally create the bulk of the program's running part by starting with defining the days of the week starting with Sunday
 
 
+# I can write an input function that strips the parentheses from the dates input so that the program can actually interpret it
 
+# I can create an if statement to check that the input values have two '//' and also three parts
+
+def main():
+
+        days_of_the_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+        input_date = input("Please enter a date in this format (MM/DD/YYYY): ").strip()
+
+        parts = input_date.split('/')
+
+        if len(parts) != 3:
+
+                print("Invalid Date. Please try again.")
+
+                return
+        
+# I can make an if not statement to check if the input values are numbers
+
+# This was given in an example of how to check if an input value is numeric or not what what function to use
+
+        if not (parts[0].isdigit() and parts[1].isdigit() and parts[2].isdigit()):
+
+                print("Invalid Date. Please try again.")
+
+                return
+
+# I can change the parts into integers for the given month, day, and year
+
+        month = int(parts[0])
+
+        day = int(parts[1])
+
+        year = int(parts[2])
+
+# I can then try and validate the date through an if not statment 
+
+        if not valid_date(month, day, year):
+
+                print(f"{input_date} is an Invalid Date. Please try again.")
+
+                return
+
+        day_of_the_week_index = day_of_week_calculator(month, day, year)
+
+        day_of_the_week_name = days_of_the_week[day_of_the_week_index]
+
+        print(f"{input_date} is a {day_of_the_week_name}")
+
+# I can then run the program by an if statement and having the 'main()' run
+
+if __name__ == "__main__":
+
+        main()
+
+# I tried using basic functions without 'def' but I wasn't able to use the 'return' statements and it made it easier to break up the program
