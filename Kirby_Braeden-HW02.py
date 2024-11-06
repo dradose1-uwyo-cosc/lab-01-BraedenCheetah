@@ -196,7 +196,7 @@ def main():
         
 # I can make an if not statement to check if the input values are numbers
 
-# This was given in an example of how to check if an input value is numeric or not what what function to use
+# This was given in an example of how to check if an input value is numeric or not for what function to use
 
         if not (parts[0].isdigit() and parts[1].isdigit() and parts[2].isdigit()):
 
