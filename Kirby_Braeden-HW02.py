@@ -6,10 +6,10 @@
 # Sources, people worked with, help given to: 
 
 # Stack Overflow. (2024, November 5). "Is there an expansion on if statments that can stop code from continuing?". 
-# https://https://stackoverflow.com/questions/33565519/python-if-not-this-and-not-that
+# https://stackoverflow.com/questions/33565519/python-if-not-this-and-not-that
 
 # Geeks for Geeks. (2024, November 5). "Return statements and their functions". 
-# https://https://www.geeksforgeeks.org/python-return-statement/
+# https://www.geeksforgeeks.org/python-return-statement/
 
 # Assignment Information:
 
@@ -117,7 +117,7 @@ def january_first_day_calculator(year):
         
         y = year - 1
 
-        return (36 + y + (y // 4) - (y //100) + (y // 400)) % 7
+        return (36 + y + (y // 4) - (y // 100) + (y // 400)) % 7
 
 # I can now create a validity 'checker' and make sure the entered month, day, and year are all valid and will not bring up an error
 
@@ -139,7 +139,7 @@ def valid_date(month, day, year):
                 1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
         }
 
-# I can then change febuary (2) for if it is a leap year and the statement is True
+# I can then change february (aka 2) for if it is a leap year and the statement is True
 
         if it_is_leap_year(year):
 
@@ -190,7 +190,7 @@ def main():
 
         if len(parts) != 3:
 
-                print("Invalid Date. Please try again.")
+                print(f"{input_date} - Invalid Date. Please try again.")
 
                 return
         
@@ -200,7 +200,7 @@ def main():
 
         if not (parts[0].isdigit() and parts[1].isdigit() and parts[2].isdigit()):
 
-                print(f"{input_date} Invalid Date. Please try again.")
+                print(f"{input_date} - Invalid Date. Please try again.")
 
                 return
 
@@ -224,7 +224,7 @@ def main():
 
         day_of_the_week_name = days_of_the_week[day_of_the_week_index]
 
-        print(f"{input_date} {day_of_the_week_name}")
+        print(f"{input_date} - {day_of_the_week_name}")
 
 # I can then run the program by an if statement and having the 'main()' run
 
