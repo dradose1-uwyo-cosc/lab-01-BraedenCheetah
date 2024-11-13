@@ -31,11 +31,17 @@
 
 # You will be outputting a VERY recognizable ASCII art with this. If you are looking at the output file and you aren't sure what it is, you are likely doing it incorrectly. It can help if you zoom out on your output file.
 
+# I can start by using the instructions to split the code and use pairs
+
+# Also, setting the output to be a list
+
 def processing_code(line):
 
     pairs = line.strip().split("\t")
 
     output = []
+
+# I will make it so the values within the prompt file are 'keys' and 'values' and I can split the pair into the key and value
 
     for pair in pairs:
 
@@ -53,17 +59,22 @@ def processing_code(line):
 
     return "".join(output)
 
+# I can use the main codespace to run the program and write out the output into the 'outfile' so that it comes out as intended
+
 def main():
 
     with open("prompt.txt", "r") as infile, open("out.txt", "w") as outfile:
 
         for line in infile:
 
-            processed_line = processing_code(line)
+            line = line.strip()
 
-            outfile.write(processed_line + "\n")
+            if line:
+
+                processed_line = processing_code(line)
+
+                outfile.write(processed_line + "\n")
 
 if __name__ == "__main__":
 
     main() 
-
